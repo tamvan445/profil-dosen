@@ -16,11 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        // Data Perguruan Tinggi
+        $this->call(CollegeSeeder::class);
+
         // database seeds to create first user
-        $user = new User;
-        $user->name = "wildan";
-        $user->email = "wildan@admin.com";
-        $user->password = bcrypt('wildan123');
-        $user->save();
+        // $user = new User;
+        // $user->name = "wildan";
+        // $user->email = "wildan@admin.com";
+        // $user->password = bcrypt('wildan123');
+        // $user->save();
     }
 }
