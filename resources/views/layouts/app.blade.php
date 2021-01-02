@@ -10,6 +10,7 @@
           crossorigin="anonymous"/>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('tailwindcss/app.css') }}" rel="stylesheet">
 
     @yield('third_party_stylesheets')
 
