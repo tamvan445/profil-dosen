@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\College;
 use Illuminate\Http\Request;
 
 class CollegeController extends Controller
@@ -13,7 +14,9 @@ class CollegeController extends Controller
      */
     public function index()
     {
-        return view('admin.colleges.index');
+        $colleges = College::paginate(5);
+
+        return view('admin.colleges.index', compact('colleges'));
     }
 
     /**
