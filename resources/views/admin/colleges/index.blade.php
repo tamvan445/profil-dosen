@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-    <h3 class="card-title">Semua Perguruan Tinggi</h3>
-    </div>
-    <br>
+<p style="font-size: 35px">Data Perguruan Tinggi</p>
+<br>
 <!-- /.modal buat munculin form nambahin perguruan tinggi -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCollege" >Tambahkan Data</button>
 
