@@ -33,3 +33,6 @@ Route::post('/colleges', [CollegeController::class, 'store']);
 Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit']);
 Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('college.update');
 // delete
+Route::get('/colleges/del/{id}', [CollegeController::class, 'destroy']);
+
+/******************************************************************************************* */
