@@ -26,5 +26,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  * College Routes
  */
 
+// store
 Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
 Route::post('/colleges', [CollegeController::class, 'store']);
+// update
+Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit']);
+Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('college.update');
+// delete
