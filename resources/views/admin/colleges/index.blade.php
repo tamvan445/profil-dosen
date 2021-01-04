@@ -46,7 +46,8 @@
         <thead>
         <tr>
             <th>Perguruan Tinggi</th>
-            <th style="width: 20px">Akreditasi</th>
+            <th style="width: 10px">Akreditasi</th>
+            <th style="width: 8.24em; text-align: center;">Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -54,6 +55,10 @@
         <tr>
             <td>{{ $data->name }}</td>
             <td style="text-align: center;">{{ $data->accreditation }}</td>
+            <td>
+                <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info">Edit</a>
+                <a type="button" href="/colleges/del/{{$data->id}}" class="btn btn-danger">Del</a>
+            </td>
         </tr>
         @endforeach
         </tbody>
