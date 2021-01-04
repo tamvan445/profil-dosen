@@ -37,7 +37,15 @@ class CollegeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+        $accreditation = $request->accreditation;
+
+        $college = new College();
+        $college->name = $name;
+        $college->accreditation = $accreditation;
+        $college->save();
+
+        return back()->with('college_added', 'Data perguruan tinggi berhasil di masukan!');
     }
 
     /**

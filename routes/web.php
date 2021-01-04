@@ -22,4 +22,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/**
+ * College Routes
+ */
+
 Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
+Route::post('/colleges', [CollegeController::class, 'store']);
