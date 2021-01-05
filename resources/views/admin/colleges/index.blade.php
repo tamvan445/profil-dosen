@@ -57,7 +57,7 @@
             <td style="text-align: center;">{{ $data->accreditation }}</td>
             <td>
                 <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info">Edit</a>
-                <a type="button" href="/colleges/del/{{$data->id}}" class="btn btn-danger">Del</a>
+                <a type="button" href="/colleges/del/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Del</a>
             </td>
         </tr>
         @endforeach
