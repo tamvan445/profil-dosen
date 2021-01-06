@@ -18,11 +18,11 @@
       <div class="modal-body">
         <form method="POST" action="{{ route('colleges.index') }}" enctype="multipart/form-data">
         @csrf
-          <div class="form-group">
+        <div class="form-group">
             <label for="name" class="col-form-label">Perguruan Tinggi:</label>
             <input type="text" class="form-control" name="name">
           </div>
-          <div class="form-group">
+        <div class="form-group">
             <label for="accreditation" class="col-form-label">Akreditasi:</label>
             <select name="accreditation" class="custom-select" required>
                 <option value="A">A</option>
@@ -30,18 +30,26 @@
                 <option value="C">C</option>
             </select>
           </div>
+        <div class="form-group">
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" required>
+            <label class="form-check-label">
+                Saya setuju dengan syarat dan ketentuan
+            </label>
+            </div>
+        </div>
           <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Tambahkan</button>
       </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
 <!-- /. -->
-    <!-- /.tabel perguruan tinggi -->
-    <div class="card-body">
+
+<!-- /.tabel perguruan tinggi -->
+<div class="card-body">
     <table class="table table-bordered">
         <thead>
         <tr>

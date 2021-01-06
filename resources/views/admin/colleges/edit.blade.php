@@ -29,6 +29,14 @@
                 <option value="C">C</option>
             </select>
         </div>
+        <div class="form-group">
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" required>
+            <label class="form-check-label">
+                Saya setuju dengan syarat dan ketentuan
+            </label>
+            </div>
+        </div>
                 <button type="submit" class="btn btn-primary">Perbarharui</button>
                 </form>
             </div>
