@@ -72,7 +72,7 @@
         @endforeach
         </tbody>
     </table>
-    {{ $colleges->links() }}
+    {{ $colleges->links('pagination::custom') }}
     </div>
 </div>
 <!-- /.tabel perguruan tinggi -->
