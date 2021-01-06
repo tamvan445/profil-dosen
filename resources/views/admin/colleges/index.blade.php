@@ -52,15 +52,16 @@
 <div class="card-body">
     <table class="table table-bordered">
         <thead>
-        <tr>
+        <tr><th>No</th>
             <th>Perguruan Tinggi</th>
             <th style="width: 10px">Akreditasi</th>
             <th style="width: 8.24em; text-align: center;">Aksi</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($colleges as $data)
+        @foreach ($colleges as $key => $data)
         <tr>
+            <td>{{ $colleges->firstItem() + $key }}</td>
             <td>{{ $data->name }}</td>
             <td style="text-align: center;">{{ $data->accreditation }}</td>
             <td>
