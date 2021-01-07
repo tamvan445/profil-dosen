@@ -14,7 +14,17 @@ class CollegeController extends Controller
      */
     public function index()
     {
-        $colleges = College::paginate(5);
+        $search = request()->query('search');
+
+        if ($search)
+        {
+            $colleges = College::where('name', 'LIKE', "%{$search}%")
+                ->paginate(5);
+        }
+        else
+        {
+            $colleges = College::paginate(5);
+        }
 
         return view('admin.colleges.index', compact('colleges'));
     }

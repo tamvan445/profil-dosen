@@ -8,6 +8,10 @@
         </div><!-- /.card-body -->
         <div class="card-body">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCollege" >Tambahkan Data</button>
+        <form class="form-inline" style="margin-top: 15px;" method="GET" action="{{route('colleges.index')}}">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Cari Perguruan Tinggi" value="{{ request()->query('search') }}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
+        </form>
         <table class="table table-bordered" style="margin-top: 15px">
         <thead>
         <tr>
