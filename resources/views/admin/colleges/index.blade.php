@@ -7,18 +7,22 @@
         <h3 class="card-title">Data Perguruan Tinggi</h3>
         </div><!-- /.card-body -->
         <div class="card-body">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCollege" >Tambahkan Data</button>
+        <div class="float-left">
+        <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#addCollege" >+ Tambahkan Data</button>
+        </div><!-- /.button -->
+        <div class="float-right">
         <form class="form-inline" style="margin-top: 15px;" method="GET" action="{{route('colleges.index')}}">
             <input class="form-control mr-sm-2" type="text" name="search" placeholder="Cari Perguruan Tinggi" value="{{ request()->query('search') }}">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Cari</button>
         </form>
-        <table class="table table-bordered" style="margin-top: 15px">
+        </div><!-- /.search perguruan tinggi -->
+        <table class="table table-hover text-nowrap">
         <thead>
         <tr>
-            <th>No</th>
+            <th style="width: 5px">No</th>
             <th>Perguruan Tinggi</th>
-            <th style="width: 10px">Akreditasi</th>
-            <th style="width: 8.24em; text-align: center;">Aksi</th>
+            <th style="width: 15px">Akreditasi</th>
+            <th style="width: 7.8em; text-align: center;">Edit | Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -28,8 +32,8 @@
             <td>{{ $data->name }}</td>
             <td style="text-align: center;">{{ $data->accreditation }}</td>
             <td>
-                <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info">Edit</a>
-                <a type="button" href="/colleges/del/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Del</a>
+                <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                <a type="button" href="/colleges/del/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger"><i class="fas fa-trash"></i></a>
             </td>
         </tr>
         @endforeach
