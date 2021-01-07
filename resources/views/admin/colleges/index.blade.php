@@ -1,10 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<p style="font-size: 35px">Data Perguruan Tinggi</p>
-<br>
-<!-- /.modal buat munculin form nambahin perguruan tinggi -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCollege" >Tambahkan Data</button>
+<div class="container-fluid" style="margin-top: 15px">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+        <h3 class="card-title">Data Perguruan Tinggi</h3>
+        </div><!-- /.card-body -->
+        <div class="card-body">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCollege" >Tambahkan Data</button>
+        <table class="table table-bordered" style="margin-top: 15px">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Perguruan Tinggi</th>
+            <th style="width: 10px">Akreditasi</th>
+            <th style="width: 8.24em; text-align: center;">Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($colleges as $key => $data)
+        <tr>
+            <td>{{ $colleges->firstItem() + $key }}</td>
+            <td>{{ $data->name }}</td>
+            <td style="text-align: center;">{{ $data->accreditation }}</td>
+            <td>
+                <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info">Edit</a>
+                <a type="button" href="/colleges/del/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Del</a>
+            </td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
+    {{ $colleges->links('pagination::custom') }}
+        </div><!-- /.tabel perguruan tinggi -->
+    </div><!-- /.card-body -->
+</div><!-- /.container-fluid -->
 
 <div class="modal fade" id="addCollege" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -45,35 +75,5 @@
       </div>
     </div>
   </div>
-</div>
-<!-- /. -->
-
-<!-- /.tabel perguruan tinggi -->
-<div class="card-body">
-    <table class="table table-bordered">
-        <thead>
-        <tr><th>No</th>
-            <th>Perguruan Tinggi</th>
-            <th style="width: 10px">Akreditasi</th>
-            <th style="width: 8.24em; text-align: center;">Aksi</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($colleges as $key => $data)
-        <tr>
-            <td>{{ $colleges->firstItem() + $key }}</td>
-            <td>{{ $data->name }}</td>
-            <td style="text-align: center;">{{ $data->accreditation }}</td>
-            <td>
-                <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info">Edit</a>
-                <a type="button" href="/colleges/del/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Del</a>
-            </td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
-    {{ $colleges->links('pagination::custom') }}
-    </div>
-</div>
-<!-- /.tabel perguruan tinggi -->
+</div><!-- /.modal buat munculin form nambahin perguruan tinggi -->
 @endsection
