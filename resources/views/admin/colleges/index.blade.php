@@ -26,14 +26,14 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($colleges as $key => $data)
+        @foreach ($colleges as $key => $college)
         <tr>
             <td>{{ $colleges->firstItem() + $key }}</td>
-            <td>{{ $data->name }}</td>
-            <td style="text-align: center;">{{ $data->accreditation }}</td>
+            <td>{{ $college->name }}</td>
+            <td style="text-align: center;">{{ $college->accreditation }}</td>
             <td>
-                <a type="button" href="/colleges/edit/{{$data->id}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                <a type="button" href="/colleges/del/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                <a type="button" href="/colleges/edit/{{$college->id}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                <a type="button" href="/colleges/del/{{$college->id}}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger"><i class="fas fa-trash"></i></a>
             </td>
         </tr>
         @endforeach
