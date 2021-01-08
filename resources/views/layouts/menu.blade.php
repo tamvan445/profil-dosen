@@ -1,10 +1,12 @@
-<!-- need to remove -->
+<!-- Sidebar Menu -->
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link active">
+    <a href="{{ route('home') }}" class="nav-link">
         <i class="nav-icon fas fa-home"></i>
-        <p>Home</p>
+        <p>Beranda</p>
     </a>
-    <a href="{{ route('colleges.index') }}" class="nav-link active">
+</li>
+<li class="nav-item">
+    <a href="{{ route('colleges.index') }}" class="nav-link">
         <i class="nav-icon fas fa-university"></i>
         <p>Perguruan Tinggi</p>
     </a>
