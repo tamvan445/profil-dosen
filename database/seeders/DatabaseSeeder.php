@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // Data Perguruan Tinggi
-        $this->call(CollegeSeeder::class);
+        // $this->call(CollegeSeeder::class);
+        // $this->call(LecturerSeeder::class);
 
         // database seeds to create first user
         // $user = new User;
