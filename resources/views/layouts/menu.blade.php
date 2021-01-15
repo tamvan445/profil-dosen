@@ -11,3 +11,9 @@
         <p>Perguruan Tinggi</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('lecturers.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-chalkboard-teacher"></i>
+        <p>Profil Dosen</p>
+    </a>
+</li>

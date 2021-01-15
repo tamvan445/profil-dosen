@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\LecturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,20 @@ Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit']);
 Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('college.update');
 // delete
 Route::get('/colleges/del/{id}', [CollegeController::class, 'destroy']);
+
+/******************************************************************************************* */
+
+/**
+ * Lecturer Routes
+ */
+
+// store
+Route::get('/lecturers', [LecturerController::class, 'index'])->name('lecturers.index');
+Route::post('/lecturers', [LecturerController::class, 'store']);
+// update
+Route::get('/lecturers/edit/{id}', [LecturerController::class, 'edit']);
+Route::post('/lecturers/edit', [LecturerController::class, 'update'])->name('lecturers.update');
+// delete
+Route::get('/lecturers/del/{id}', [LecturerController::class, 'destroy']);
 
 /******************************************************************************************* */
