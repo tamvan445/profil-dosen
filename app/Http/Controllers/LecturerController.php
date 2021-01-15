@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lecturer;
 use Illuminate\Http\Request;
 
 class LecturerController extends Controller
@@ -13,9 +14,9 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        //
+        $lecturers = Lecturer::paginate(5);
 
-        return view('admin.lecturers.index');
+        return view('admin.lecturers.index', compact('lecturers'));
     }
 
     /**
