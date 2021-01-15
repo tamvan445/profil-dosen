@@ -42,9 +42,11 @@ Route::get('/colleges/del/{id}', [CollegeController::class, 'destroy']);
  * Lecturer Routes
  */
 
-// store
+// index
 Route::get('/lecturers', [LecturerController::class, 'index'])->name('lecturers.index');
-Route::post('/lecturers', [LecturerController::class, 'store']);
+// store
+Route::get('/lecturers/add', [LecturerController::class, 'create'])->name('lecturers.create');
+Route::post('/lecturers/add', [LecturerController::class, 'store']);
 // update
 Route::get('/lecturers/edit/{id}', [LecturerController::class, 'edit']);
 Route::post('/lecturers/edit', [LecturerController::class, 'update'])->name('lecturers.update');
