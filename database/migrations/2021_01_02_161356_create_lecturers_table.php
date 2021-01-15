@@ -24,6 +24,7 @@ class CreateLecturersTable extends Migration
             $table->string('lastEducation');
             $table->timestamps();
 
+            // foreign key
             $table->foreign('college_id')->references('id')->on('colleges');
         });
     }
