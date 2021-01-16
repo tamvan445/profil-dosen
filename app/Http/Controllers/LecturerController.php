@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lecturer;
+use App\Models\College;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class LecturerController extends Controller
 {
@@ -26,7 +30,9 @@ class LecturerController extends Controller
      */
     public function create()
     {
-        //
+        $colleges = College::select('id', 'name')->get();
+
+        return view('admin.lecturers.create', compact('colleges'));
     }
 
     /**
@@ -37,7 +43,27 @@ class LecturerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+        $nidn = $request->nidn;
+        $photo = $request->file('file');
+        $imageName = time().'.'.$photo->extension();
+        $photo->move(storage_path('app/public'), $imageName);
+        $college_id = $request->college_id;
+        $studyProgram = $request->studyProgram;
+        $gender = $request->gender;
+        $lastEducation = $request->lastEducation;
+
+        $lecturer = new Lecturer();
+        $lecturer->name = $name;
+        $lecturer->nidn = $nidn;
+        $lecturer->photo = $imageName;
+        $lecturer->college_id = $college_id;
+        $lecturer->studyProgram = $studyProgram;
+        $lecturer->gender = $gender;
+        $lecturer->lastEducation = $lastEducation;
+        $lecturer->save();
+
+        return "dosen berhasil di input";
     }
 
     /**
