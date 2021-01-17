@@ -131,6 +131,10 @@ class LecturerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lecturer = Lecturer::find($id);
+        Storage::delete('public/'.$lecturer->photo);
+        $lecturer->delete();
+
+        return redirect()->route('lecturers.index');
     }
 }
