@@ -26,6 +26,6 @@ class Lecturer extends Model
 
     public function college()
     {
-        return $this->belongsTo(College::class, 'college_id');
+        return $this->belongsTo(College::class);
     }
 }
