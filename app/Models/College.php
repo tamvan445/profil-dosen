@@ -14,7 +14,7 @@ class College extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'name', 'accreditation'];
+    protected $fillable = ['name', 'accreditation'];
 
     public function lectures()
     {
