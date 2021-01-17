@@ -16,6 +16,7 @@
             <th>Program Studi</th>
             <th>Jenis Kelamin</th>
             <th>Pendidikan Terakhir</th>
+            <th>Edit | Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,13 @@
             <td>{{ $lecturer->studyProgram }}</td>
             <td>{{ $lecturer->gender }}</td>
             <td>{{ $lecturer->lastEducation }}</td>
+            <td>
+                <a type="button" href="/lecturers/edit/{{ $lecturer->id }}"
+                    class="btn btn-info"><i class="fas fa-edit"></i></a>
+                <a type="button" href="/lecturers/del/{{ $lecturer->id }}"
+                    onclick="return confirm('Anda yakin akan mengapus dosen tersebut?');"
+                        class="btn btn-danger"><i class="fas fa-trash"></i></a>
+            </td>
         </tr>
         @endforeach
         </tbody>
