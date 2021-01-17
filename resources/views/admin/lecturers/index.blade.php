@@ -11,8 +11,10 @@
         <thead>
         <tr>
             <th style="width: 1px">No</th>
+            <th style="width: 20px">Foto</th>
             <th>Nama</th>
             <th>NIDN</th>
+            <th>Perguruan Tinggi</th>
             <th>Program Studi</th>
             <th>Jenis Kelamin</th>
             <th>Pendidikan Terakhir</th>
@@ -23,8 +25,12 @@
         @foreach ($lecturers as $key => $lecturer)
         <tr>
             <td>{{ $lecturers->firstItem() + $key }}</td>
+            <td>
+            <img src="{{ asset('storage/' . $lecturer->photo) }}" style="max-width: 35px;" class="rounded">
+            </td>
             <td>{{ $lecturer->name }}</td>
             <td>{{ $lecturer->nidn }}</td>
+            <td>{{ $lecturer->college->name }}</td>
             <td>{{ $lecturer->studyProgram }}</td>
             <td>{{ $lecturer->gender }}</td>
             <td>{{ $lecturer->lastEducation }}</td>
