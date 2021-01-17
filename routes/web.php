@@ -52,5 +52,7 @@ Route::get('/lecturers/edit/{id}', [LecturerController::class, 'edit']);
 Route::post('/lecturers/edit', [LecturerController::class, 'update'])->name('lecturers.update');
 // delete
 Route::get('/lecturers/del/{id}', [LecturerController::class, 'destroy']);
+// show
+Route::get('/lecturers/show/{id}', [LecturerController::class, 'show']);
 
 /******************************************************************************************* */
