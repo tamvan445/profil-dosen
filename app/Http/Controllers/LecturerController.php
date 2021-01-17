@@ -85,19 +85,42 @@ class LecturerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lecturer = Lecturer::find($id);
+        $colleges = College::select('id', 'name')->get();
+
+        return view('admin.lecturers.edit', compact('lecturer', 'colleges'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $name = $request->name;
+        $nidn = $request->nidn;
+        $photo = $request->file('file');
+        $imageName = time().'.'.$photo->extension();
+        $photo->move(storage_path('app/public'), $imageName);
+        $college_id = $request->college_id;
+        $studyProgram = $request->studyProgram;
+        $gender = $request->gender;
+        $lastEducation = $request->lastEducation;
+
+        $lecturer = Lecturer::find($request->id);
+        $lecturer->name = $name;
+        $lecturer->nidn = $nidn;
+        Storage::delete('public/'.$lecturer->photo);
+        $lecturer->photo = $imageName;
+        $lecturer->college_id = $college_id;
+        $lecturer->studyProgram = $studyProgram;
+        $lecturer->gender = $gender;
+        $lecturer->lastEducation = $lastEducation;
+        $lecturer->save();
+
+        return redirect()->route('lecturers.index');
     }
 
     /**
