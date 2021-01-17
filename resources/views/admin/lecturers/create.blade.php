@@ -9,7 +9,7 @@
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a  href="{{ route('lecturers.index') }}">Data Dosen</a></li>
-        <li class="breadcrumb-item active">Edit</li>
+        <li class="breadcrumb-item active">Tambah Data</li>
     </ol>
 </div>
 <div class="col-md-6 offset-md-3">
