@@ -23,13 +23,13 @@
         <div class="card-body box-profile">
         <div class="text-center">
             <img class="profile-user-img img-fluid img-circle"
-                src=""
+                src="{{ asset('storage/' . $lecturer->photo) }}"
                 alt="User profile picture">
         </div>
 
-        <h3 class="profile-username text-center">Wildan R.</h3>
+        <h3 class="profile-username text-center">{{ $lecturer->name }}</h3>
 
-        <p class="text-muted text-center">Universitas BSI</p>
+        <p class="text-muted text-center">{{ $lecturer->college->name }}</p>
 
         </div>
         <!-- /.card-body -->
@@ -46,7 +46,7 @@
         <strong><i class="fas fa-address-card mr-1"></i> NIDN</strong>
 
         <p class="text-muted">
-           34534
+           {{ $lecturer->nidn }}
         </p>
 
         <hr>
@@ -54,20 +54,20 @@
         <strong><i class="fas fa-book mr-1"></i> Program Studi</strong>
 
         <p class="text-muted">
-           Teknik Fisika
+           {{ $lecturer->studyProgram }}
         </p>
 
         <hr>
 
         <strong><i class="fas fa-graduation-cap mr-1"></i> Pendidikan Tertinggi</strong>
 
-        <p class="text-muted">S3</p>
+        <p class="text-muted">{{ $lecturer->lastEducation }}</p>
 
         <hr>
 
         <strong><i class="fas fa-venus-mars mr-1"></i> Jenis Kelamin</strong>
 
-        <p class="text-muted">Pria</p>
+        <p class="text-muted">{{ $lecturer->gender }}</p>
 
         <hr>
 

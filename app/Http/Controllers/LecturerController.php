@@ -74,9 +74,9 @@ class LecturerController extends Controller
      */
     public function show($id)
     {
-        //
+        $lecturer = Lecturer::find($id);
 
-        return view('admin.lecturers.show');
+        return view('admin.lecturers.show', compact('lecturer'));
     }
 
     /**
