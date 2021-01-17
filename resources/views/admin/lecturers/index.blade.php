@@ -18,7 +18,7 @@
             <th>Program Studi</th>
             <th>Jenis Kelamin</th>
             <th>Pendidikan Terakhir</th>
-            <th>Edit | Delete</th>
+            <th>Detail | Edit | Hapus</th>
         </tr>
         </thead>
         <tbody>
@@ -35,6 +35,7 @@
             <td>{{ $lecturer->gender }}</td>
             <td>{{ $lecturer->lastEducation }}</td>
             <td>
+                <a type="button" href="/lecturers/show/{{ $lecturer->id }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
                 <a type="button" href="/lecturers/edit/{{ $lecturer->id }}"
                     class="btn btn-info"><i class="fas fa-edit"></i></a>
                 <a type="button" href="/lecturers/del/{{ $lecturer->id }}"
