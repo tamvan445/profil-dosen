@@ -41,7 +41,7 @@ Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.ind
 Route::post('/colleges', [CollegeController::class, 'store']);
 // update
 Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit']);
-Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('college.update');
+Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('colleges.update');
 // delete
 Route::get('/colleges/del/{id}', [CollegeController::class, 'destroy']);
 

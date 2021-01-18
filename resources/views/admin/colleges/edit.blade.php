@@ -14,7 +14,7 @@
     </ol>
 </div>
 <div class="col-md-6 offset-md-3">
-    <form method="POST" action="{{route('college.update')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('colleges.update') }}" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="id" value="{{$college->id}}" />
     <div class="form-group">
