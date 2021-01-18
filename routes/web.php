@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CollegeController;
 use App\Http\Controllers\Admin\LecturerController;
+use App\Http\Controllers\Admin\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,16 @@ Route::get('/lecturers/del/{id}', [LecturerController::class, 'destroy']);
 Route::get('/lecturers/show/{id}', [LecturerController::class, 'show']);
 
 /*****Admin*********************************************************************************** */
+
+/**
+ * Course Routes
+ */
+
+// index and store
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+Route::post('/courses', [CourseController::class, 'store']);
+// update
+Route::get('/courses/edit/{id}', [CourseController::class, 'edit']);
+Route::post('/courses/edit', [CourseController::class, 'update'])->name('courses.update');
+// delete
+Route::get('/courses/del/{id}', [CourseController::class, 'destroy']);
