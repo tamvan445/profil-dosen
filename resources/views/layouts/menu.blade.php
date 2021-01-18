@@ -17,3 +17,9 @@
         <p>Profil Dosen</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('courses.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-book-reader"></i>
+        <p>Mata Kuliah</p>
+    </a>
+</li>
