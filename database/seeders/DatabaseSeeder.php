@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
 
         // Data Perguruan Tinggi
         // $this->call(CollegeSeeder::class);
+        // Data Dosen
         // $this->call(LecturerSeeder::class);
+        // Data Mata Kuliah
+        // $this->call(CourseSeeder::class);
 
         // database seeds to create first user
         // $user = new User;
