@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CollegeController;
-use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\CollegeController;
+use App\Http\Controllers\Admin\LecturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +16,27 @@ use App\Http\Controllers\LecturerController;
 |
 */
 
+/**
+ * Author: Wildan R.
+ * 2021
+ * Made with Laravel framework 8.20.1
+ */
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*****Admin*********************************************************************************** */
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /**
  * College Routes
  */
 
-// store
+// index and store
 Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
 Route::post('/colleges', [CollegeController::class, 'store']);
 // update
@@ -36,7 +45,7 @@ Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('colle
 // delete
 Route::get('/colleges/del/{id}', [CollegeController::class, 'destroy']);
 
-/******************************************************************************************* */
+/*****Admin*********************************************************************************** */
 
 /**
  * Lecturer Routes
@@ -55,4 +64,4 @@ Route::get('/lecturers/del/{id}', [LecturerController::class, 'destroy']);
 // show
 Route::get('/lecturers/show/{id}', [LecturerController::class, 'show']);
 
-/******************************************************************************************* */
+/*****Admin*********************************************************************************** */
