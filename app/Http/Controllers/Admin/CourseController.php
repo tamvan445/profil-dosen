@@ -39,7 +39,15 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course_code = $request->course_code;
+        $course = $request->course;
+
+        $_course = new Course();
+        $_course->course_code = $course_code;
+        $_course->course = $course;
+        $_course->save();
+
+        return back()->with('course_added', 'Data berhasil di masukan!');
     }
 
     /**
