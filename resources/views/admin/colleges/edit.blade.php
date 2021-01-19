@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section style="padding-top:10px;">
-<div class="container">
+<div class="container" style="padding-top:10px;">
     <div class="row">
     <div class="col-sm-6">
 <p style="font-size: 20px;">Ubah Data Perguruan Tinggi</p>
@@ -40,5 +39,4 @@
         <button type="submit" class="btn btn-primary">Perbarharui</button>
     </form>
 </div>
-</section>
 @endsection

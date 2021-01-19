@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="padding-top:10px;">
     <div class="row">
     <div class="col-sm-6">
 <p style="font-size: 20px;">Ubah Data Mata Kuliah</p>
