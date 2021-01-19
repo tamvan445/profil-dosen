@@ -69,19 +69,28 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::find($id);
+
+        return view('admin.courses.edit', compact('course'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $course_code = $request->course_code;
+        $course = $request->course;
+
+        $_course = Course::find($request->id);
+        $_course->course_code = $course_code;
+        $_course->course = $course;
+        $_course->save();
+
+        return redirect()->route('courses.index');
     }
 
     /**
