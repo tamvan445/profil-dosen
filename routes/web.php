@@ -44,7 +44,7 @@ Route::post('/colleges', [CollegeController::class, 'store']);
 Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit']);
 Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('colleges.update');
 // delete
-Route::get('/colleges/del/{id}', [CollegeController::class, 'destroy']);
+Route::get('/colleges/destroy/{id}', [CollegeController::class, 'destroy']);
 
 /*****Admin*********************************************************************************** */
 
@@ -61,7 +61,7 @@ Route::post('/lecturers/add', [LecturerController::class, 'store']);
 Route::get('/lecturers/edit/{id}', [LecturerController::class, 'edit']);
 Route::post('/lecturers/edit', [LecturerController::class, 'update'])->name('lecturers.update');
 // delete
-Route::get('/lecturers/del/{id}', [LecturerController::class, 'destroy']);
+Route::get('/lecturers/destroy/{id}', [LecturerController::class, 'destroy']);
 // show
 Route::get('/lecturers/show/{id}', [LecturerController::class, 'show']);
 
@@ -78,4 +78,4 @@ Route::post('/courses', [CourseController::class, 'store']);
 Route::get('/courses/edit/{id}', [CourseController::class, 'edit']);
 Route::post('/courses/edit', [CourseController::class, 'update'])->name('courses.update');
 // delete
-Route::get('/courses/del/{id}', [CourseController::class, 'destroy']);
+Route::get('/courses/destroy/{id}', [CourseController::class, 'destroy']);
