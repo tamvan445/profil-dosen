@@ -17,13 +17,9 @@ class CollegeController extends Controller
     {
         $search = request()->query('search');
 
-        if ($search)
-        {
-            $colleges = College::where('name', 'LIKE', "%{$search}%")
-                ->paginate(5);
-        }
-        else
-        {
+        if ($search) {
+            $colleges = College::where('name', 'LIKE', "%{$search}%")->paginate(5);
+        } else {
             $colleges = College::paginate(5);
         }
 
