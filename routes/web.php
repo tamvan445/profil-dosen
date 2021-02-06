@@ -36,15 +36,16 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 /**
  * College Routes
  */
-
+Route::prefix('colleges')->group(function () {
 // index and store
-Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
-Route::post('/colleges', [CollegeController::class, 'store']);
+    Route::get('/', [CollegeController::class, 'index'])->name('colleges.index');
+    Route::post('/', [CollegeController::class, 'store']);
 // update
-Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit']);
-Route::post('/colleges/edit', [CollegeController::class, 'update'])->name('colleges.update');
+    Route::get('/edit/{id}', [CollegeController::class, 'edit']);
+    Route::post('/edit', [CollegeController::class, 'update'])->name('colleges.update');
 // delete
-Route::get('/colleges/destroy/{id}', [CollegeController::class, 'destroy']);
+    Route::get('/destroy/{id}', [CollegeController::class, 'destroy']);
+});
 
 /*****Admin*********************************************************************************** */
 
@@ -52,18 +53,20 @@ Route::get('/colleges/destroy/{id}', [CollegeController::class, 'destroy']);
  * Lecturer Routes
  */
 
+Route::prefix('lecturers')->group(function () {
 // index
-Route::get('/lecturers', [LecturerController::class, 'index'])->name('lecturers.index');
+    Route::get('/', [LecturerController::class, 'index'])->name('lecturers.index');
 // store
-Route::get('/lecturers/add', [LecturerController::class, 'create'])->name('lecturers.create');
-Route::post('/lecturers/add', [LecturerController::class, 'store']);
+    Route::get('/add', [LecturerController::class, 'create'])->name('lecturers.create');
+    Route::post('/add', [LecturerController::class, 'store']);
 // update
-Route::get('/lecturers/edit/{id}', [LecturerController::class, 'edit']);
-Route::post('/lecturers/edit', [LecturerController::class, 'update'])->name('lecturers.update');
+    Route::get('/edit/{id}', [LecturerController::class, 'edit']);
+    Route::post('/edit', [LecturerController::class, 'update'])->name('lecturers.update');
 // delete
-Route::get('/lecturers/destroy/{id}', [LecturerController::class, 'destroy']);
+    Route::get('/destroy/{id}', [LecturerController::class, 'destroy']);
 // show
-Route::get('/lecturers/show/{id}', [LecturerController::class, 'show']);
+    Route::get('/show/{id}', [LecturerController::class, 'show']);
+});
 
 /*****Admin*********************************************************************************** */
 
@@ -71,11 +74,13 @@ Route::get('/lecturers/show/{id}', [LecturerController::class, 'show']);
  * Course Routes
  */
 
+Route::prefix('courses')->group(function () {
 // index and store
-Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
-Route::post('/courses', [CourseController::class, 'store']);
+    Route::get('/', [CourseController::class, 'index'])->name('courses.index');
+    Route::post('/', [CourseController::class, 'store']);
 // update
-Route::get('/courses/edit/{id}', [CourseController::class, 'edit']);
-Route::post('/courses/edit', [CourseController::class, 'update'])->name('courses.update');
+    Route::get('/edit/{id}', [CourseController::class, 'edit']);
+    Route::post('/edit', [CourseController::class, 'update'])->name('courses.update');
 // delete
-Route::get('/courses/destroy/{id}', [CourseController::class, 'destroy']);
+    Route::get('/destroy/{id}', [CourseController::class, 'destroy']);
+});
