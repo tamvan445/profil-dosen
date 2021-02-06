@@ -31,6 +31,10 @@ Auth::routes();
 
 /*****Admin*********************************************************************************** */
 
+// Auth Midleware (Admin)
+Route::middleware('auth')->group(function () {
+
+// Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /**
@@ -46,8 +50,6 @@ Route::prefix('colleges')->group(function () {
 // delete
     Route::get('/destroy/{id}', [CollegeController::class, 'destroy']);
 });
-
-/*****Admin*********************************************************************************** */
 
 /**
  * Lecturer Routes
@@ -68,8 +70,6 @@ Route::prefix('lecturers')->group(function () {
     Route::get('/show/{id}', [LecturerController::class, 'show']);
 });
 
-/*****Admin*********************************************************************************** */
-
 /**
  * Course Routes
  */
@@ -84,3 +84,6 @@ Route::prefix('courses')->group(function () {
 // delete
     Route::get('/destroy/{id}', [CourseController::class, 'destroy']);
 });
+/*****Admin*********************************************************************************** */
+
+}); /***Auth Midleware****** */
