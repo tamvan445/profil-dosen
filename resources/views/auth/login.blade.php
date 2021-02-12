@@ -12,6 +12,7 @@
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
 
+    <!-- Tailwind CSS -->
     <link href="{{ mix('tailwindcss/app.css') }}" rel="stylesheet">
 
 </head>
@@ -23,7 +24,7 @@
     <div class="relative flex flex-wrap">
       <div class="w-full relative">
         <div class="mt-6">
-           <div class="mb-5 pb-1border-b-2 text-center font-base text-gray-700">
+           <div class="mb-5 pb-1border-b-2 text-center font-base text-gray-700 text-4xl">
            <span>{{ config('app.name') }}</span>
           </div>
          
@@ -78,8 +79,8 @@
                 </div>
               </div>
               <div class="flex justify-between"><label class="block text-gray-500 font-bold my-4"><input type="checkbox"
-                    class="leading-loose text-pink-600"> <span class="py-2 text-sm text-gray-600 leading-snug"> Remember
-                    Me </span></label> <label class="block text-gray-500 font-bold my-4"><a
+                    class="leading-loose text-pink-600"> <span class="py-2 text-sm text-gray-600 leading-snug"> Ingatkan Saya
+                     </span></label> <label class="block text-gray-500 font-bold my-4"><a
                     href="{{ route('password.request') }}"
                     class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"><span>Lupa
                       Password?</span></a></label></div> <button type="submit" class="mt-3 text-lg font-semibold 
@@ -97,8 +98,7 @@
 </div>
 </div>
 
-<script src="{{ mix('js/app.js') }}" defer></script>
-
+<!-- Alpine.js -->
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
 </body>
