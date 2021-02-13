@@ -3,7 +3,7 @@
 /**
  * Author: Wildan R.
  * 2021
- * Made with Laravel framework 8.20.1
+ * Laravel framework 8.26.1
  */
 
 use Illuminate\Support\Facades\Route;
@@ -63,6 +63,7 @@ Route::prefix('courses')->group(function () {
     Route::post('/edit', [CourseController::class, 'update'])->name('courses.update');
     Route::get('/destroy/{id}', [CourseController::class, 'destroy']);
 });
+
 /* Admin */
 
 /* Auth Midleware (Admin) */ }); 
