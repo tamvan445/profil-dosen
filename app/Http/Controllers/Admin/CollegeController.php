@@ -93,13 +93,10 @@ class CollegeController extends Controller
             'accreditation' => 'required'
         ]);
 
-        $name = $request->name;
-        $accreditation = $request->accreditation;
+        $input = $request->all();
 
         $college = College::find($request->id);
-        $college->name = $name;
-        $college->accreditation = $accreditation;
-        $college->save();
+        $college->update($input);
 
         return redirect()->route('colleges.index');
     }

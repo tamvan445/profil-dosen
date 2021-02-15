@@ -92,15 +92,12 @@ class CourseController extends Controller
         $request->validate([
             'course_code' => 'required',
             'course' => 'required'
-        ]);
+        ]); 
 
-        $course_code = $request->course_code;
-        $course = $request->course;
+        $input = $request->all();
 
-        $_course = Course::find($request->id);
-        $_course->course_code = $course_code;
-        $_course->course = $course;
-        $_course->save();
+        $course = Course::find($request->id);
+        $course->update($input);
 
         return redirect()->route('courses.index');
     }
