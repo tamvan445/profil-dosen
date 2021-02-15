@@ -16,7 +16,13 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::paginate(5);
+        $search = request()->query('search');
+
+        if ($search) {
+            $courses = Course::where('course_code', 'LIKE', "%{$search}%")->paginate(5);
+        } else {
+            $courses = Course::paginate(5);
+        }
 
         return view('admin.courses.index', compact('courses'));
     }
