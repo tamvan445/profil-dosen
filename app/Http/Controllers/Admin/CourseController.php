@@ -39,15 +39,16 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $course_code = $request->course_code;
-        $course = $request->course;
+        $request->validate([
+            'course_code' => 'required',
+            'course' => 'required'
+        ]);
+            
+        $input = $request->all();
 
-        $_course = new Course();
-        $_course->course_code = $course_code;
-        $_course->course = $course;
-        $_course->save();
+        Course::create($input);
 
-        return back()->with('course_added', 'Data berhasil di masukan!');
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -82,6 +83,11 @@ class CourseController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'course_code' => 'required',
+            'course' => 'required'
+        ]);
+
         $course_code = $request->course_code;
         $course = $request->course;
 

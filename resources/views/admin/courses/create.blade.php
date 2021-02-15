@@ -23,17 +23,16 @@
                 </svg>
                 </li>
                 <li>
-                <a class="text-gray-500" aria-current="page">{{ $course->course_code }}</a>
+                <a class="text-gray-500" aria-current="page">Form Mata Kuliah</a>
                 </li>
             </ol>
             </div>
             <div class="pt-1 p-1">
-                <form class="p-10 bg-white rounded shadow-xl" method="POST" action="{{ route('courses.update') }}" enctype="multipart/form-data">
+                <form class="p-10 bg-white rounded shadow-xl" method="POST" action="{{ route('courses.store') }}" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id" value="{{$course->id}}" />
                     <div class="pb-2 max-w-xs">
                         <label class="block text-sm text-gray-600" for="course_code">Kode Mata Kuliah *</label>
-                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="course_code" value="{{ $course->course_code }}" type="text" required="" >
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="course_code" type="text" required="" >
                     </div>
                     @error('course_code')
                     <div class="pb-1 pt-1">
@@ -44,7 +43,7 @@
                     @enderror
                     <div class="pb-2 max-w-xs">
                         <label class="block text-sm text-gray-600" for="course">Mata Kuliah *</label>
-                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="course" value="{{ $course->course }}" type="text" required="" >
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="course" type="text" required="" >
                     </div>
                     @error('course')
                     <div class="pb-1 pt-1">

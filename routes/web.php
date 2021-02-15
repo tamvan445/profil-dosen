@@ -59,7 +59,8 @@ Route::prefix('lecturers')->group(function () {
 
 Route::prefix('courses')->group(function () {
     Route::get('/', [CourseController::class, 'index'])->name('courses.index');
-    Route::post('/', [CourseController::class, 'store']);
+    Route::get('/add', function () { return view('admin.courses.create'); });
+    Route::post('/add', [CourseController::class, 'store'])->name('courses.store');
     Route::get('/edit/{id}', [CourseController::class, 'edit']);
     Route::post('/edit', [CourseController::class, 'update'])->name('courses.update');
     Route::get('/destroy/{id}', [CourseController::class, 'destroy']);
