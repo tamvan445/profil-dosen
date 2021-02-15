@@ -44,15 +44,16 @@ class CollegeController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->name;
-        $accreditation = $request->accreditation;
+        $request->validate([
+            'name' => 'required|unique:colleges',
+            'accreditation' => 'required'
+        ]);
+            
+        $input = $request->all();
 
-        $college = new College();
-        $college->name = $name;
-        $college->accreditation = $accreditation;
-        $college->save();
+        College::create($input);
 
-        return back()->with('college_added', 'Data perguruan tinggi berhasil di masukan!');
+        return redirect()->route('colleges.index');
     }
 
     /**
@@ -87,6 +88,11 @@ class CollegeController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'accreditation' => 'required'
+        ]);
+
         $name = $request->name;
         $accreditation = $request->accreditation;
 
@@ -106,7 +112,7 @@ class CollegeController extends Controller
      */
     public function destroy($id)
     {
-        $college = College::findOrFail($id);
+        $college = College::find($id);
         $college->delete();
 
         return redirect()->route('colleges.index');

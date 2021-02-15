@@ -32,7 +32,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('colleges')->group(function () {
     Route::get('/', [CollegeController::class, 'index'])->name('colleges.index');
-    Route::post('/', [CollegeController::class, 'store']);
+    Route::get('/add', function () { return view('admin.colleges.create'); });
+    Route::post('/add', [CollegeController::class, 'store'])->name('colleges.store');
     Route::get('/edit/{id}', [CollegeController::class, 'edit']);
     Route::post('/edit', [CollegeController::class, 'update'])->name('colleges.update');
     Route::get('/destroy/{id}', [CollegeController::class, 'destroy']);
