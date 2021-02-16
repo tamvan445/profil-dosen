@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
+// Form Requests
+use App\Http\Requests\StoreLecturerRequest;
+use App\Http\Requests\UpdateLecturerRequest;
+
 class LecturerController extends Controller
 {
     /**
@@ -18,7 +22,13 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        $lecturers = Lecturer::paginate(5);
+        $search = request()->query('search');
+
+        if ($search) {
+            $lecturers = Lecturer::where('nidn', 'LIKE', "%{$search}%")->paginate(5);
+        } else {
+            $lecturers = Lecturer::paginate(5);
+        }
 
         return view('admin.lecturers.index', compact('lecturers'));
     }
@@ -41,7 +51,7 @@ class LecturerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLecturerRequest $request)
     {
         $name = $request->name;
         $nidn = $request->nidn;
@@ -63,7 +73,7 @@ class LecturerController extends Controller
         $lecturer->lastEducation = $lastEducation;
         $lecturer->save();
 
-        return "dosen berhasil di input";
+        return redirect()->route('lecturers.index');
     }
 
     /**
@@ -99,7 +109,7 @@ class LecturerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateLecturerRequest $request)
     {
         $name = $request->name;
         $nidn = $request->nidn;

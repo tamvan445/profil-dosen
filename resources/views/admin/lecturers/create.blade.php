@@ -27,12 +27,26 @@
                         <label class="block text-sm text-gray-600" for="name">Nama *</label>
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" class="form-control" name="name" >
                     </div>
+                    @error('name')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-2 max-w-xs">
-                        <label class="block text-sm text-gray-600" for="nidn">NIDN: *</label>
+                        <label class="block text-sm text-gray-600" for="nidn">NIDN *</label>
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" class="form-control" name="nidn" >
                     </div>
+                    @error('nidn')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-2 max-w-xs">
-                        <label class="block text-sm text-gray-600" for="file">Foto Terbaru: *</label>
+                        <label class="block text-sm text-gray-600" for="file">Foto Terbaru *</label>
                         
                         <input type="file" name="file" class="hidden" />
                     </label>
@@ -57,6 +71,13 @@
                         </div>
                     </div>
                     </div>
+                    @error('file')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-2">
                     <label class="block text-sm text-gray-600" for="college">Perguruan Tinggi *</label>
                     <svg class="w-2 h-2 absolute right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
@@ -67,10 +88,24 @@
                         @endforeach
                     </select>
                     </div>
+                    @error('college_id')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-2 max-w-xs">
                         <label class="block text-sm text-gray-600" for="studyProgram">Program Studi *</label>
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" class="form-control" name="studyProgram" >
                     </div>
+                    @error('studyProgram')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-2">
                     <label class="block text-sm text-gray-600" for="gender">Jenis Kelamin *</label>
                     <svg class="w-2 h-2 absolute right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
@@ -80,6 +115,13 @@
                         <option value="Wanita">Wanita</option>
                     </select>
                     </div>
+                    @error('gender')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-2">
                     <label class="block text-sm text-gray-600" for="lastEducation">Pendidikan Terakhir *</label>
                     <svg class="w-2 h-2 absolute right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
@@ -89,6 +131,13 @@
                         <option value="S3">S3</option>
                     </select>
                     </div>
+                    @error('lastEducation')
+                    <div class="pb-1 pt-1">
+                        <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                    </div>
+                    @enderror
                     <div class="pb-1">
                         <input type="checkbox" value="" required>
                         <label>

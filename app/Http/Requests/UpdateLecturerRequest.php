@@ -25,7 +25,7 @@ class UpdateLecturerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'nidn' => 'required|unique:lecturers',
+            'nidn' => 'required',
             'photo' => 'dimensions:min_width=100,min_height=200',
             'college_id' => 'required',
             'studyProgram' => 'required',
