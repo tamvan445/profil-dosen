@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Lecturer;
 use App\Models\College;
-use Illuminate\Http\File;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
@@ -48,7 +46,7 @@ class LecturerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreLecturerRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreLecturerRequest $request)
@@ -106,7 +104,7 @@ class LecturerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdateLecturerRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateLecturerRequest $request)
