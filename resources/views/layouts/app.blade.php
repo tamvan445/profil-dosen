@@ -98,10 +98,8 @@
     <b>Version</b> 0.0.1
 </div>
 
-    <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- MainJS -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+<!-- AlpineJS -->
+<script src="{{ mix('js/app.js') }}" defer></script>
 
 @yield('third_party_scripts')
 
