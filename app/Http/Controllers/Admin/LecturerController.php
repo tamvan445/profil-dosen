@@ -51,25 +51,15 @@ class LecturerController extends Controller
      */
     public function store(StoreLecturerRequest $request)
     {
-        $name = $request->name;
-        $nidn = $request->nidn;
+        $input = $request->all();
+
         $photo = $request->file('file');
         $imageName = time().'.'.$photo->extension();
         $photo->move(storage_path('app/public'), $imageName);
-        $college_id = $request->college_id;
-        $studyProgram = $request->studyProgram;
-        $gender = $request->gender;
-        $lastEducation = $request->lastEducation;
 
-        $lecturer = new Lecturer();
-        $lecturer->name = $name;
-        $lecturer->nidn = $nidn;
-        $lecturer->photo = $imageName;
-        $lecturer->college_id = $college_id;
-        $lecturer->studyProgram = $studyProgram;
-        $lecturer->gender = $gender;
-        $lecturer->lastEducation = $lastEducation;
-        $lecturer->save();
+        $input['photo'] = $imageName;
+
+        Lecturer::create($input);
 
         return redirect()->route('lecturers.index');
     }
@@ -109,26 +99,17 @@ class LecturerController extends Controller
      */
     public function update(UpdateLecturerRequest $request)
     {
-        $name = $request->name;
-        $nidn = $request->nidn;
+        $input = $request->all();
+
         $photo = $request->file('file');
         $imageName = time().'.'.$photo->extension();
         $photo->move(storage_path('app/public'), $imageName);
-        $college_id = $request->college_id;
-        $studyProgram = $request->studyProgram;
-        $gender = $request->gender;
-        $lastEducation = $request->lastEducation;
+
+        $input['photo'] = $imageName;
 
         $lecturer = Lecturer::find($request->id);
-        $lecturer->name = $name;
-        $lecturer->nidn = $nidn;
         Storage::delete('public/'.$lecturer->photo);
-        $lecturer->photo = $imageName;
-        $lecturer->college_id = $college_id;
-        $lecturer->studyProgram = $studyProgram;
-        $lecturer->gender = $gender;
-        $lecturer->lastEducation = $lastEducation;
-        $lecturer->save();
+        $lecturer->update($input);
 
         return redirect()->route('lecturers.index');
     }
