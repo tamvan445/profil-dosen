@@ -26,7 +26,7 @@ class StoreLecturerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'nidn' => 'required',
+            'nidn' => 'required|unique:lecturers',
             'lecturerPhoto' => [
                 'required',
                 'image',
