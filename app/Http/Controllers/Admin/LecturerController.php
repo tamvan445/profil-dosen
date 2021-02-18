@@ -101,14 +101,20 @@ class LecturerController extends Controller
     {
         $input = $request->all();
 
-        $photo = $request->file('file');
+        $lecturer = Lecturer::find($request->id);
+
+        if ($request->hasFile('lecturerPhoto')) {
+        
+        $photo = $request->file('lecturerPhoto');
         $imageName = time().'.'.$photo->extension();
         $photo->move(storage_path('app/public'), $imageName);
 
         $input['photo'] = $imageName;
 
-        $lecturer = Lecturer::find($request->id);
         Storage::delete('public/'.$lecturer->photo);
+        
+        } 
+        
         $lecturer->update($input);
 
         return redirect()->route('lecturers.index');
