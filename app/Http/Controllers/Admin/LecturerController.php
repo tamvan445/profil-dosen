@@ -53,7 +53,7 @@ class LecturerController extends Controller
     {
         $input = $request->all();
 
-        $photo = $request->file('file');
+        $photo = $request->file('lecturerPhoto');
         $imageName = time().'.'.$photo->extension();
         $photo->move(storage_path('app/public'), $imageName);
 
