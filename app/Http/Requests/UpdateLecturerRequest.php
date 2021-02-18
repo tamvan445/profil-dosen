@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateLecturerRequest extends FormRequest
 {
@@ -26,7 +27,11 @@ class UpdateLecturerRequest extends FormRequest
         return [
             'name' => 'required',
             'nidn' => 'required',
-            'photo' => 'dimensions:min_width=100,min_height=200',
+            'lecturerPhoto' => [
+                'image',
+                'mimes:jpg',
+                Rule::dimensions()->maxWidth(1200)->maxHeight(700),
+            ],
             'college_id' => 'required',
             'studyProgram' => 'required',
             'gender' => 'required', 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreLecturerRequest extends FormRequest
 {
@@ -25,8 +26,13 @@ class StoreLecturerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'nidn' => 'required|unique:lecturers',
-            'photo' => 'dimensions:min_width=100,min_height=200',
+            'nidn' => 'required',
+            'lecturerPhoto' => [
+                'required',
+                'image',
+                'mimes:jpg',
+                Rule::dimensions()->maxWidth(1200)->maxHeight(700),
+            ],
             'college_id' => 'required',
             'studyProgram' => 'required',
             'gender' => 'required', 
