@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 // Form Requests
-use App\Http\Requests\StoreLecturerRequest;
-use App\Http\Requests\UpdateLecturerRequest;
+use App\Http\Requests\Lecturer\StoreLecturerRequest;
+use App\Http\Requests\Lecturer\UpdateLecturerRequest;
 
 class LecturerController extends Controller
 {

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\College;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\College;
 
-class StoreLecturerRequest extends FormRequest
+class UpdateCollegeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,18 +26,11 @@ class StoreLecturerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'nidn' => 'required|unique:lecturers',
-            'lecturerPhoto' => [
+            'name' => [
                 'required',
-                'image',
-                'mimes:jpg',
-                Rule::dimensions()->maxWidth(1200)->maxHeight(700),
+                Rule::unique(College::class, 'name')->ignore($this->id)
             ],
-            'college_id' => 'required',
-            'studyProgram' => 'required',
-            'gender' => 'required', 
-            'lastEducation' =>'required'
+            'accreditation' => 'required'
         ];
     }
 }

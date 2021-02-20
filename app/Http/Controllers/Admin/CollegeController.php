@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 // Form Requests
-use App\Http\Requests\UpdateCollegeRequest;
+use App\Http\Requests\College\UpdateCollegeRequest;
 
 class CollegeController extends Controller
 {

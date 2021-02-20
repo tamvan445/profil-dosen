@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Lecturer;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Lecturer;
 
-class UpdateLecturerRequest extends FormRequest
+class StoreLecturerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +26,9 @@ class UpdateLecturerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'nidn' => [
-                'required',
-                Rule::unique(Lecturer::class, 'nidn')->ignore($this->id)
-            ],
+            'nidn' => 'required|unique:lecturers',
             'lecturerPhoto' => [
+                'required',
                 'image',
                 'mimes:jpg',
                 Rule::dimensions()->maxWidth(1200)->maxHeight(700),
