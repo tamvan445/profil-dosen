@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\College;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-// Form Requests
-use App\Http\Requests\College\UpdateCollegeRequest;
+// Form Request
+use App\Http\Requests\College\CollegeRequest;
 
 class CollegeController extends Controller
 {
@@ -32,16 +31,11 @@ class CollegeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\CollegeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CollegeRequest $request)
     {
-        $request->validate([
-            'name' => 'required|unique:colleges',
-            'accreditation' => 'required'
-        ]);
-
         College::create($request->all());
 
         return redirect()->route('colleges.index');
@@ -63,10 +57,10 @@ class CollegeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\UpdateCollegeRequest  $request
+     * @param  \Illuminate\Http\CollegeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCollegeRequest $request)
+    public function update(CollegeRequest $request)
     {
         $college = College::find($request->id)->update($request->all());
 
