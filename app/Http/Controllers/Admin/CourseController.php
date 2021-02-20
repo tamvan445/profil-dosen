@@ -39,10 +39,8 @@ class CourseController extends Controller
             'course_code' => 'required',
             'course' => 'required'
         ]);
-            
-        $input = $request->all();
 
-        Course::create($input);
+        Course::create($request->all());
 
         return redirect()->route('courses.index');
     }
@@ -73,10 +71,7 @@ class CourseController extends Controller
             'course' => 'required'
         ]); 
 
-        $input = $request->all();
-
-        $course = Course::find($request->id);
-        $course->update($input);
+        $course = Course::find($request->id)->update($request->all());
 
         return redirect()->route('courses.index');
     }
@@ -89,8 +84,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::find($id);
-        $course->delete();
+        $course = Course::find($id)->delete();
 
         return redirect()->route('courses.index');
     }
