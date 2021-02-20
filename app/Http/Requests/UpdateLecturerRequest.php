@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\Lecturer;
 
 class UpdateLecturerRequest extends FormRequest
 {
@@ -26,7 +27,10 @@ class UpdateLecturerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'nidn' => 'required',
+            'nidn' => [
+                'required',
+                Rule::unique(Lecturer::class, 'nidn')->ignore($this->id)
+            ],
             'lecturerPhoto' => [
                 'image',
                 'mimes:jpg',
