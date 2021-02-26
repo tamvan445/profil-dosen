@@ -40,58 +40,55 @@
 @include('layouts.sidebar')
 
 <div class="w-full flex flex-col h-screen overflow-y-hidden">
-    <!-- Desktop Header -->
-    <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
-        <div class="w-1/2"></div>
-        <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-            <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="https://avatars.githubusercontent.com/u/32849384?s=460&u=438369e7cb9b2f9c62db13ee25e43beb46a1d602&v=4">
-            </button>
-            <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-            <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                <a href="#" class="block px-4 py-2 account-link hover:text-white"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt mr-3"></i>
-                    Keluar
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Header & Nav -->
-    <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
-        <div class="flex items-center justify-between">
-            <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ config('app.name') }}</a>
-            <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
-                <i x-show="!isOpen" class="fas fa-bars"></i>
-                <i x-show="isOpen" class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <!-- Dropdown Nav -->
-        <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-            @include('layouts.menu')
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+<!-- Desktop Header -->
+<header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+    <div class="w-1/2"></div>
+    <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+        <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+            <img src="https://avatars.githubusercontent.com/u/32849384?s=460&u=438369e7cb9b2f9c62db13ee25e43beb46a1d602&v=4">
+        </button>
+        <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
+        <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+            <a href="#" class="block px-4 py-2 account-link hover:text-white"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt mr-3"></i>
-                Sign Out
+                Keluar
             </a>
-        </nav>
-    <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-        <i class="fas fa-plus mr-3"></i> New Report
-    </button> -->
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Header & Nav -->
+<header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
+    <div class="flex items-center justify-between">
+        <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ config('app.name') }}</a>
+        <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
+            <i x-show="!isOpen" class="fas fa-bars"></i>
+            <i x-show="isOpen" class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Dropdown Nav -->
+    <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
+    @include('layouts.menu')
+    <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+        <i class="fas fa-sign-out-alt mr-3"></i>
+        Sign Out
+    </a>
+    </nav>
 </header>
     
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <section class="content">
-        @yield('content')
-    </section>
+<div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+<section class="content">
+@yield('content')
+</section>
 </div>
     
-<!-- Main Footer -->
+<!-- Admin Footer -->
 <div class="admin-footer">
     <strong>Copyright &copy; 2021 <a href="https://wildan9.github.io">wildan9.github.io</a>.</strong> All rights
         reserved.

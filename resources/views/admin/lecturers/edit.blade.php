@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full h-screen overflow-x-hidden border-t flex flex-col pb-24">
 <main class="w-full flex-grow p-6">
     <div class="flex flex-wrap">
         <div class="w-full my-6 pr-0 lg:pr-2">

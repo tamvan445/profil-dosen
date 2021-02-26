@@ -15,9 +15,4 @@ class College extends Model
      * @var array
      */
     protected $fillable = ['name', 'accreditation'];
-
-    public function lectures()
-    {
-        return $this->hasMany(Lecturer::class);
-    }
 }
