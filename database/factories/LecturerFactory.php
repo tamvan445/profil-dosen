@@ -23,15 +23,17 @@ class LecturerFactory extends Factory
      */
     public function definition()
     {
+        $teknik = ['Fisika', 'Nuklir', 'Informatika'];
+        $nidn = uniqid();
+
         return [
             'name' => 'Mas '.Str::random(5),
-            'nidn' => rand(10000, 99999),
+            'nidn' => $nidn,
             'photo' => $this->faker->image('storage/app/public/', 100, 100),
             'college_id' => rand(1, 20),
-            'studyProgram' => 'Teknik '
-                .$this->faker->randomElement($array = array ('Informatika','Fisika', 'Nuklir')),
+            'studyProgram' => 'Teknik '.Arr::random($teknik),
             'gender' => 'pria',
-            'lastEducation' => 'S3',
+            'lastEducation' => 'S3'
         ];
     }
 }

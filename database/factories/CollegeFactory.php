@@ -23,9 +23,12 @@ class CollegeFactory extends Factory
      */
     public function definition()
     {
+
+        $accreditation = ['A', 'B', 'C'];
+
         return [
             'name' => 'Universitas '.Str::random(5),
-            'accreditation' =>  $this->faker->randomElement($array = array ('A','B','C')),
+            'accreditation' =>  Arr::random($accreditation)
         ];
     }
 }

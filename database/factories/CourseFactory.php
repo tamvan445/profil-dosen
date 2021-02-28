@@ -23,12 +23,11 @@ class CourseFactory extends Factory
      */
     public function definition()
     {
+        $courses = ['Memasak', 'Mewarnai', 'Melukis', 'Berenang'];
+
         return [
             'course_code' => Str::random(5),
-            'course' => $this->faker
-                ->randomElement($array = array (
-                    'Matematika Dasar 1', 'Fisika Dasar 2',
-                    'Statistika 2', 'Matematika Informatika 2', 'Matematika Lanjut 2')),
+            'course' => Arr::random($courses)
         ];
     }
 }

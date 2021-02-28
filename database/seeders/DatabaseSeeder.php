@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // Data Perguruan Tinggi
-        // $this->call(CollegeSeeder::class);
+        $this->call(CollegeSeeder::class);
         // Data Dosen
-        // $this->call(LecturerSeeder::class);
+        $this->call(LecturerSeeder::class);
         // Data Mata Kuliah
-        // $this->call(CourseSeeder::class);
+        $this->call(CourseSeeder::class);
 
-        // database seeds to create first user
+        // Membuat Admin
         // $user = new User;
         // $user->name = "wildan";
         // $user->email = "wildan@admin.com";
