@@ -70,7 +70,7 @@ class CourseController extends Controller
             'course' => 'required'
         ]); 
 
-        $course = Course::find($request->id)->update($request->all());
+        Course::find($request->id)->update($request->all());
 
         return redirect()->route('courses.index');
     }
@@ -83,7 +83,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::find($id)->delete();
+        Course::destroy($id);
 
         return redirect()->route('courses.index');
     }

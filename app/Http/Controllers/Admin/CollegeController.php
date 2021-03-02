@@ -62,7 +62,7 @@ class CollegeController extends Controller
      */
     public function update(CollegeRequest $request)
     {
-        $college = College::find($request->id)->update($request->all());
+        College::find($request->id)->update($request->all());
 
         return redirect()->route('colleges.index');
     }
@@ -75,7 +75,7 @@ class CollegeController extends Controller
      */
     public function destroy($id)
     {
-        $college = College::find($id)->delete();
+        College::destroy($id);
 
         return redirect()->route('colleges.index');
     }
