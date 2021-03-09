@@ -31,15 +31,15 @@ class UpdateLecturerRequest extends FormRequest
                 'required',
                 Rule::unique(Lecturer::class, 'nidn')->ignore($this->id)
             ],
-            'lecturerPhoto' => [
+            'lecturer_photo' => [
                 'image',
                 'mimes:jpg',
                 Rule::dimensions()->maxWidth(1200)->maxHeight(700),
             ],
             'college_id' => 'required',
-            'studyProgram' => 'required',
+            'study_program' => 'required',
             'gender' => 'required', 
-            'lastEducation' =>'required'
+            'last_education' =>'required'
         ];
     }
 }

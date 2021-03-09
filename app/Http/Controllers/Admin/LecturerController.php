@@ -53,7 +53,7 @@ class LecturerController extends Controller
     {
         $input = $request->all();
 
-        $photo = $request->file('lecturerPhoto');
+        $photo = $request->file('lecturer_photo');
         $imageName = time().'.'.$photo->extension();
         $photo->move(storage_path('app/public'), $imageName);
 
@@ -103,9 +103,9 @@ class LecturerController extends Controller
 
         $lecturer = Lecturer::find($request->id);
 
-        if ($request->hasFile('lecturerPhoto')) {
+        if ($request->hasFile('lecturer_photo')) {
         
-        $photo = $request->file('lecturerPhoto');
+        $photo = $request->file('lecturer_photo');
         $imageName = time().'.'.$photo->extension();
         $photo->move(storage_path('app/public'), $imageName);
 

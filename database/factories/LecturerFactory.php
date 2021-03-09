@@ -31,9 +31,9 @@ class LecturerFactory extends Factory
             'nidn' => $nidn,
             'photo' => $this->faker->image('storage/app/public/', 100, 100),
             'college_id' => rand(1, 20),
-            'studyProgram' => 'Teknik '.Arr::random($teknik),
+            'study_program' => 'Teknik '.Arr::random($teknik),
             'gender' => 'pria',
-            'lastEducation' => 'S3'
+            'last_education' => 'S3'
         ];
     }
 }

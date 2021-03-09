@@ -27,16 +27,16 @@ class StoreLecturerRequest extends FormRequest
         return [
             'name' => 'required',
             'nidn' => 'required|unique:lecturers',
-            'lecturerPhoto' => [
+            'lecturer_photo' => [
                 'required',
                 'image',
                 'mimes:jpg',
                 Rule::dimensions()->maxWidth(1200)->maxHeight(700),
             ],
             'college_id' => 'required',
-            'studyProgram' => 'required',
+            'study_program' => 'required',
             'gender' => 'required', 
-            'lastEducation' =>'required'
+            'last_education' =>'required'
         ];
     }
 }

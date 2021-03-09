@@ -19,9 +19,9 @@ class Lecturer extends Model
         'nidn',
         'photo',
         'college_id',
-        'studyProgram',
+        'study_program',
         'gender',
-        'lastEducation'
+        'last_education'
     ];
 
     public function college()

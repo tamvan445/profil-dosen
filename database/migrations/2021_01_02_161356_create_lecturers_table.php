@@ -19,9 +19,9 @@ class CreateLecturersTable extends Migration
             $table->string('nidn');
             $table->string('photo');
             $table->unsignedInteger('college_id');
-            $table->string('studyProgram');
+            $table->string('study_program');
             $table->string('gender');
-            $table->string('lastEducation');
+            $table->string('last_education');
             $table->timestamps();
 
             // foreign key
