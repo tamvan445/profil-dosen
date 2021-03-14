@@ -85,7 +85,7 @@
                         @endforeach
                     </select>
                     </div>
-                    @error('college')
+                    @error('college_id')
                     <div class="pb-1 pt-1">
                         <div class="w-60 px-4 py-3 text-xs text-red-500 border border-red-500 rounded-lg" role="alert">
                             <p>{{ $message }}</p>
